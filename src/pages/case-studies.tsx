@@ -10,7 +10,7 @@ const Header = styled.header`
 	${tw`text-black`};
 `
 
-const Home = () => {
+const CaseStudies = () => {
 	return (
 		<>
 			<NextSeo
@@ -18,10 +18,10 @@ const Home = () => {
 				description='Email me work is a company tasked to find the best jobs for freelancers on a budget.'
 			/>
 			<Layout>
-				<div>home</div>
+				<div>Case Studies</div>
 			</Layout>
 		</>
 	)
 }
 
-export default Home
+export default CaseStudies

@@ -18,7 +18,7 @@ const Home = () => {
 				description='Email me work is a company tasked to find the best jobs for freelancers on a budget.'
 			/>
 			<Layout>
-				<div>home</div>
+				<div>about</div>
 			</Layout>
 		</>
 	)
