@@ -10,16 +10,6 @@ module.exports = {
 			lg: '976px',
 			xl: '1440px',
 		},
-		colors: {
-			gray: colors.coolGray,
-			blue: colors.lightBlue,
-			red: colors.rose,
-			pink: colors.fuchsia,
-		},
-		fontFamily: {
-			sans: ['Graphik', 'sans-serif'],
-			serif: ['Merriweather', 'serif'],
-		},
 		extend: {
 			spacing: {
 				128: '32rem',
@@ -39,5 +29,6 @@ module.exports = {
 	plugins: [
 		require('@tailwindcss/typography'),
 		require('tailwind-bootstrap-grid')(),
+		require(`@tailwindcss/ui`),
 	],
 }

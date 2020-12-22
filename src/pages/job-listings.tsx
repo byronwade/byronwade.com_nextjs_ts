@@ -10,7 +10,7 @@ const Header = styled.header`
 	${tw`text-black`};
 `
 
-const Home = () => {
+const JobListings = () => {
 	return (
 		<>
 			<NextSeo
@@ -19,11 +19,19 @@ const Home = () => {
 			/>
 			<Layout>
 				<div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8'>
-					home
+					<div className='min-w-0 p-4 text-white bg-purple-600 rounded-lg shadow-xs'>
+						<h4 className='mb-4 font-semibold'>Colored card</h4>
+						<p>
+							Lorem ipsum dolor sit, amet consectetur adipisicing
+							elit. Fuga, cum commodi a omnis numquam quod? Totam
+							exercitationem quos hic ipsam at qui cum numquam,
+							sed amet ratione! Ratione, nihil dolorum.
+						</p>
+					</div>
 				</div>
 			</Layout>
 		</>
 	)
 }
 
-export default Home
+export default JobListings

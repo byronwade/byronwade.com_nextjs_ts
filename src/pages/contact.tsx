@@ -1,10 +1,12 @@
 //https://github.com/garmeeh/next-seo - Can do Schema, openGraph and all other SEO headers.
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
 import Layout from '../components/Layout'
 
 export const config = { amp: false }
 
-const Contact = () => {
+const Contact = (props) => {
+	console.log(props)
 	return (
 		<>
 			<NextSeo
@@ -50,9 +52,9 @@ const Contact = () => {
 												stroke='currentColor'
 												aria-hidden='true'>
 												<path
-													stroke-linecap='round'
-													stroke-linejoin='round'
-													stroke-width='2'
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth='2'
 													d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
 												/>
 											</svg>
@@ -72,9 +74,9 @@ const Contact = () => {
 												stroke='currentColor'
 												aria-hidden='true'>
 												<path
-													stroke-linecap='round'
-													stroke-linejoin='round'
-													stroke-width='2'
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth='2'
 													d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
 												/>
 											</svg>
@@ -85,12 +87,12 @@ const Contact = () => {
 									</div>
 								</dl>
 								<p className='mt-6 text-base text-gray-500'>
-									Looking for careers?{' '}
-									<a
-										href='#'
-										className='font-medium text-gray-700 underline'>
-										View all job openings
-									</a>
+									Looking for careers?
+									<Link href='/job-listings'>
+										<span className='ml-1 cursor-pointer font-medium text-gray-700 underline'>
+											View all job openings
+										</span>
+									</Link>
 									.
 								</p>
 							</div>
@@ -177,3 +179,25 @@ const Contact = () => {
 }
 
 export default Contact
+
+// export async function getServerSideProps() {
+// 	const email = await fetch('http://localhost:3000/api/contact', {
+// 		method: 'POST',
+// 		headers: {
+// 			Accept: 'application/json, text/plain, */*',
+// 			'Content-Type': 'application/json',
+// 		},
+// 		body: JSON.stringify({
+// 			name: 'byron',
+// 			email: 'bcw1995@gmail.com',
+// 			phone: '831-430-6011',
+// 			body: 'text body',
+// 		}),
+// 	}).then((res) => {
+// 		console.log(res)
+// 		return res
+// 	})
+// 	console.log(email)
+
+// 	return { props: {} }
+// }

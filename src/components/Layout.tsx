@@ -5,9 +5,9 @@ const Layout = (props) => {
 	const isLoggedIn = false
 	return (
 		<>
-			<Header {...isLoggedIn} />
+			<Header isLoggedIn={isLoggedIn} />
 			{props.children}
-			<Footer {...isLoggedIn} />
+			<Footer isLoggedIn={isLoggedIn} />
 		</>
 	)
 }

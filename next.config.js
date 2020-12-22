@@ -1,33 +1,22 @@
 // const fs = require('fs')
 // const path = require('path')
 // const withTypescript = require('@zeit/next-typescript')
-// const withSass = require('@zeit/next-sass')
-// const withLess = require('@zeit/next-less')
-// const withCSS = require('@zeit/next-css')
-// const withMDX = require('@next/mdx')({
-// 	extension: /\.mdx?$/,
-// })
-// module.exports = withMDX({
-// 	pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-// })
-
-module.exports = {
-	webpackDevMiddleware: (config) => {
-		config.watchOptions = {
-			poll: 1000,
-			aggregateTimeout: 300,
-		}
-
-		return config
+const readingTime = require('reading-time')
+const mdxPrism = require('mdx-prism')
+const withMdxEnhanced = require('next-mdx-enhanced')
+module.exports = withMdxEnhanced({
+	layoutPath: 'layouts',
+	defaultLayout: true,
+	remarkPlugins: [
+		require('remark-autolink-headings'),
+		require('remark-slug'),
+		require('remark-code-titles'),
+	],
+	rehypePlugins: [mdxPrism],
+	extendFrontMatter: {
+		process: (mdxContent) => ({
+			wordCount: mdxContent.split(/\s+/gu).length,
+			readingTime: readingTime(mdxContent),
+		}),
 	},
-	images: {
-		domains: ['localhost:3000'],
-	},
-	typescript: {
-		// !! WARN !!
-		// Dangerously allow production builds to successfully complete even if
-		// your project has type errors.
-		// !! WARN !!
-		ignoreBuildErrors: true,
-	},
-}
+})()
